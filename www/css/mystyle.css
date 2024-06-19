@@ -1,0 +1,333 @@
+h1 {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+h2{
+    font-family: sans-serif;
+    text-align: center;
+}
+h3{
+    font-family: 'Young Serif', serif;
+    text-align: center;
+}
+p{
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    background-image: url('/myimages/backgroundImg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.home-content {
+    /*background-color: rgba(255, 255, 255, 0.8); !* Add a semi-transparent white background to improve text readability *!*/
+    padding: 20px;
+}
+
+.bar{
+    text-align: left;
+}
+label.error {
+    color: #F00;
+    font-weight: bold;
+}
+
+input.error,
+select.error,
+textarea.error {
+
+}
+.error {
+    color: #f00;
+}
+
+div.error {
+    color: #F00;
+    font-weight: bold;
+}
+
+#addRatings{
+    display: none
+}
+#addModifyRatings{
+    display: none
+}
+.items li {
+    width: 16.666%;
+    float: left;
+}
+
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper{
+    background-color: transparent;
+
+}
+
+.blurred-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.blurred-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('/myimages/backgroundImg.jpeg');
+    background-size: contain;
+    background-position: center;
+    /*background-repeat: no-repeat;*/
+    filter: blur(5px);
+    z-index: -1;
+}
+
+section >h2,h3{
+    color: white;
+}
+
+section >h3{
+    color: white;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+}
+
+form label,legend{
+    color: white;
+    font-size: large;
+}
+.share-form label{
+    color: white;
+}
+.post-content {
+    color: white;
+}
+#typing-effect {
+    color: whitesmoke;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right:3px solid#F00;
+ }
+h1 b {
+    font-size: larger;
+    font-weight: bolder;
+    color: Black;
+    text-decoration: overline;
+    text-decoration-style: double;
+
+}
+h2 b {
+    font-size: larger;
+    font-weight: bolder;
+    color: Black;
+    text-decoration: overline;
+    text-decoration-style: double;
+}
+.trainer-tip {
+    background-color: rgba(38, 59, 61, 0.81);
+    display: flex;
+    align-items: center;
+}
+
+.trainer-image {
+    border-radius: 50%;
+    margin-right: 15px;
+    width: 100px;
+    height: 100px;
+}
+
+.trainer-tip-content {
+    flex-grow: 1;
+    color: #ffffff;
+    font-family: 'Young Serif', serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+header>h1{
+    background-color: #3f3d3d;
+    font-weight: bolder;
+}
+#advance{
+    background-color:  #3f3d3d;
+    color: blanchedalmond;
+    width: 50%;
+
+}
+#moderate{
+    background-color: #506a7a;
+    color: blanchedalmond;
+    width: 50%;
+}
+#lower{
+    background-color: rgba(30, 66, 70, 0.81);
+    color: blanchedalmond;
+    width: 50%;
+}
+.instructor-profile {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.instructor-image {
+    max-width: 70%;
+    height: auto;
+    border-radius: 30%;
+}
+
+.instructor-bio {
+    margin-top: 10px;
+}
+
+.review-collapsible {
+    margin-top: 10px;
+}
+
+.instructor-rating {
+    margin-top: 10px;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.contact-button {
+    display: block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: white;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+#Info {
+    padding: 10px;
+}
+#nutritionChart{
+    max-width: 94%;
+    max-height: 60%;
+    padding-left: 6%;
+}
+#barChart {
+    display: block;
+    margin: auto;
+    width: 70%;
+    height: 50%;
+    background-color: white;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#savedData {
+    margin-top: 20px;
+    text-align: center;
+}
+/* Custom styling for the developer grid */
+.developer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Style for each developer block */
+.developer {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.developer img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+#container1  {
+    padding-left: 35%;
+}
+#container2 {
+    padding-left: 20%;
+    width:60%;
+    padding-right: 20%;
+}
+#container1 p{
+    font-weight: bold;
+    color: white;
+}
+h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    color: white;
+}
+.custom-active {
+    background-color:  #506a7a!important; /* Change this to your desired color */
+    color: white !important; /* Change this to the text color you prefer */
+}
+#new{
+    color: white;
+    text-align: center;
+}
+#new p{
+    text-decoration: underline ;
+    font-size: larger;
+
+}
+.back p{
+    background-color: #c2bfbf;
+    color: black;
+    font-weight: bolder;
+    padding: 15px;
+    font-size: larger;
+}
+.back h3{
+    text-align: left;
+}
+.back h1{
+    background-color: #444141;
+    color: #828282;
+    padding: 20px;
+}
+#exer label {
+    color: white;
+}
+
+#bmiResult{
+    background-color: white;
+}
+/*.community-post img{*/
+/*    width: 50%;*/
+/*    height: 50%;*/
+/*    align-content: center;*/
+/*}*/
+.instructor-profile img {
+
+    padding-left: 40%;
+}
+.postedAchievement{
+    color: white;
+}
+.developer h4{
+    color: black;
+}

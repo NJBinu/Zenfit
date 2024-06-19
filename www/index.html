@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="origin-trial" content="AjlQd1gzqSlgL0m5R6UzX/seK2l6d/hMbVbGovm8B6qc+3TnwuEGUPIH6I4mYzmWZ70latoevq/81DC5oqV6FgQAAABKeyJvcmlnaW4iOiJodHRwOi8vbG9jYWxob3N0OjYzMzQyIiwiZmVhdHVyZSI6IldlYlNRTCIsImV4cGlyeSI6MTcxNjk0MDc5OX0=">
+    <title>FitnessApp</title>
+    <script src="js/lib/jquery-2.1.4.js"></script>
+    <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+    <link rel="stylesheet" href="css/lib/jquery.mobile-1.4.5.css">
+    <script src="js/lib/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!--My files-->
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script src="js/global.js"></script>
+    <script src="js/DAL.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/facade.js"></script>
+    <script src="js/util.js"></script>
+
+<!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Roboto:wght@300&family=Tangerine&family=Young+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+<div class="blurred-background"></div>
+
+<!--Summary Page-->
+<div id="Summary" data-role="page" >
+    <header data-role="header" data-position="fixed" data-theme="b">
+        <h1>ZenFit</h1>
+        <a href="#menu" data-role="button" data-icon="bars" data-iconpos="notext" class="ui-btn-left">Menu</a>
+    </header>
+    <div data-role="panel" id="menu" data-theme="b">
+        <h2>Menu</h2>
+        <ul data-role="listview">
+            <li><a href="#Trainees">Trainees</a></li>
+            <li><a href="#Guide">Nutrition Guide</a></li>
+            <li><a href="#exer">Excercise</a></li>
+            <li><a href="#Info">Info</a></li>
+
+        </ul>
+    </div>
+    <section data-role="content" data-position="fixed" >
+         <h3 id="typing-effect"></h3>
+        <h2>Discover a new way to stay fit and healthy.</h2>
+        <div data-role="content">
+            <!-- Motivational Quotes or Tips -->
+            <h2><b><u>Trainer's Tip for the Day</u></b></h2>
+            <div data-role="content">
+                <div class="trainer-tip">
+                    <img src="myimages/gym-trainer.jpg" alt="Trainer Image" class="trainer-image">
+                    <div class="trainer-tip-content">
+                        <p><strong>Tip:</strong> The only bad workout is the one that didn't happen.</p>
+                    </div>
+                    <a href="https://youtu.be/5f7E4DQG6kk?si=F6Yh04rHSTpGa1AZ" data-role="button" data-rel="popup" data-transition="pop" data-position-to="window">Watch a short Video</a>
+                </div>
+            </div>
+
+            <h2><b><u><center>ACTIVITY</center></u></b></h2>
+            <div id="container1">
+                <p><b>Track your steps to stay active!</b></p>
+                <ul data-role="listview" data-inset="true">
+                    <li id="advance">Date: 2023-05-10 | Steps: 9100</li>
+                    <li id="lower">Date: 2023-05-09 | Steps: 6900</li>
+                    <li id="moderate">Date: 2023-05-09 | Steps: 7700</li>
+                </ul>
+            </div>
+            <h1><b><u><center>Latest Workouts</center></u></b></h1>
+            <div id="container2">
+                <ul data-role="listview" data-inset="true">
+                    <li><a href="#Workout">Cardio</a></li>
+                    <li><a href="#Workout">Strength</a></li>
+                    <li><a href="#Workout">Flexibilty</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b" >
+        <nav data-role="navbar" data-iconpos="top" data-grid="d">
+            <ul>
+                <li><a href="#Summary" data-icon="bars" class="custom-active">Summary</a></li>
+                <li><a href="#Workout" data-icon="grid">Workouts</a></li>
+                <li><a href="#Tracker" data-icon="eye">Tracker</a></li>
+                <li><a href="#Community" data-icon="comment">Community</a></li>
+                <li><a href="#About" data-icon="info">About</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+<!--Workout Library Page-->
+<div id="Workout" data-role="page" >
+    <header data-role="header" data-position="fixed" data-theme="b">
+        <h1>ZenFit</h1>
+    </header>
+    <section data-role="content" data-position="fixed" class="border">
+        <h3>Welcome to our Fitness App!</h3>
+        <h2>Our Workout Library</h2>
+        <div data-role="content">
+            <!-- Categorized List of Workouts with Details -->
+            <ul data-role="listview" data-filter="true" data-filter-placeholder="Search workouts..." data-inset="true">
+                <!-- Cardio Workouts -->
+                <li data-role="list-divider">Cardio Workouts</li>
+                <li>
+                    <a href="https://youtu.be/V5ZCLInq_Xw?si=MEhNQMKrEw5aTm78">
+                        <h2>Morning Run</h2>
+                        <p>Boost your energy with a refreshing morning run.</p>
+                        <span class="ui-li-count">Duration: 40 mins</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://youtu.be/M0uO8X3_tEA?si=0YWgdKzd1loj5gb2">
+                        <h2>High-Intensity Interval Training (HIIT)</h2>
+                        <p>Burn calories with intense bursts of exercise.</p>
+                        <span class="ui-li-count">Duration: 20 mins</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://youtu.be/a0Hrvh4RS3o?si=AzjI1x_pTEOpoviT">
+                        <h2>Jump Rope Challenge</h2>
+                        <p>Improve coordination and cardiovascular health with a jump rope workout.</p>
+                        <span class="ui-li-count">Duration: 15 mins</span>
+                    </a>
+                </li>
+
+                <!-- Strength Workouts -->
+                <li data-role="list-divider">Strength Workouts</li>
+                <li>
+                    <a href="https://youtu.be/sinkIlViPG8?si=i83E_um50Mvo2dK6">
+                        <h2>Full Body Strength</h2>
+                        <p>Build muscle strength with a full-body workout.</p>
+                        <span class="ui-li-count">Duration: 45 mins</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://youtu.be/gRqPqEMhAZ4?si=NytOp8YJZe0SEJM2">
+                        <h2>Weightlifting Basics</h2>
+                        <p>Learn the fundamentals of weightlifting.</p>
+                        <span class="ui-li-count">Duration: 30 mins</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://youtu.be/bTo4NrSriWw?si=bVBFHv0OrJ9acT0B">
+                        <h2>Bodyweight Circuit</h2>
+                        <p>Build strength using your own body weight.</p>
+                        <span class="ui-li-count">Duration: 20 mins</span>
+                    </a>
+                </li>
+
+                <!-- Flexibility Workouts -->
+                <li data-role="list-divider">Flexibility Workouts</li>
+                <li>
+                    <a href="https://youtu.be/VzY6XuOSoHw?si=5uxVDngjtlPV0F9c">
+                        <h2>Yoga for Beginners</h2>
+                        <p>Improve flexibility and relax with yoga poses.</p>
+                        <span class="ui-li-count">Duration: 30 mins</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://youtu.be/RN4d44hOr4o?si=XV_Vh9MtHEKOIgMG">
+                        <h2>Stretching Routine</h2>
+                        <p>Enhance your flexibility with a comprehensive stretching routine.</p>
+                        <span class="ui-li-count">Duration: 15 mins</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://youtu.be/sQp904QUFc0?si=3xJbYd7y41affBAh">
+                        <h2>Pilates Core Workout</h2>
+                        <p>Strengthen your core and improve flexibility with Pilates exercises.</p>
+                        <span class="ui-li-count">Duration: 25 mins</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b" >
+        <nav data-role="navbar" data-iconpos="top" data-grid="d">
+            <ul>
+                <li><a href="#Summary" data-icon="bars">Summary</a></li>
+                <li><a href="#Workout" data-icon="grid" class="custom-active">Workouts</a></li>
+                <li><a href="#Tracker" data-icon="eye">Tracker</a></li>
+                <li><a href="#Community" data-icon="comment">Community</a></li>
+                <li><a href="#About" data-icon="info">About</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+<!--Tracker Page-->
+<div id="Tracker" data-role="page" >
+    <header data-role="header" data-position="fixed" data-theme="b">
+        <h1>ZenFit</h1>
+    </header>
+    <section data-role="content" data-position="fixed" class="border">
+        <h3>Welcome to our Fitness App!</h3>
+        <h2>Let's Track your activity!</h2>
+        <div data-role="content">
+            <!-- Exercise Tracking Form -->
+            <form>
+                <label for="exercise">Select Exercise:</label>
+                <select name="exercise" id="exercise" data-theme="b">
+                    <option value="running">Running</option>
+                    <option value="cycling">Cycling</option>
+                    <option value="jumping">Jumping Jacks</option>
+                    <!-- Add more exercises as needed -->
+                </select>
+
+                <label for="sets">Sets:</label>
+                <input type="number" name="sets" id="sets" placeholder="Enter number of sets" data-theme="a">
+
+                <label for="reps">Reps:</label>
+                <input type="number" name="reps" id="reps" placeholder="Enter number of reps" data-theme="a">
+
+
+                <label for="calories">Calories Burnt:</label>
+                <div id="calories">0</div>
+
+                <!-- Weight Loss label -->
+                <label for="weightLoss">Weight Loss:</label>
+                <div id="weightLoss">0</div>
+
+
+                <!-- Camera Input -->
+                <label for="camera">Capture Image:</label>
+                <input type="file" accept="image/*" capture="camera" name="camera" id="camera" data-theme="a">
+
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                    <legend>Intensity:</legend>
+                    <input type="radio" name="intensity" id="low" value="low">
+                    <label for="low">Low</label>
+                    <input type="radio" name="intensity" id="medium" value="medium">
+                    <label for="medium">Medium</label>
+                    <input type="radio" name="intensity" id="high" value="high">
+                    <label for="high">High</label>
+                </fieldset>
+
+                <label for="notes">Notes:</label>
+                <textarea name="notes" id="notes" placeholder="Add any notes"></textarea>
+
+                <button onclick="recordUserData()" class="ui-btn-active" data-inline="true" >Save entry</button>
+                <button onclick="deleteEntry()" class="ui-btn-active" data-inline="true" >Delete</button>
+                <button onclick="window.location.href='#Nutrition'" data-theme="b"data-inline="true" >Add your nutrition intake here</button>
+            </form>
+        </div>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b" >
+        <nav data-role="navbar" data-iconpos="top" data-grid="d">
+            <ul>
+                <li><a href="#Summary" data-icon="bars">Summary</a></li>
+                <li><a href="#Workout" data-icon="grid">Workouts</a></li>
+                <li><a href="#Tracker" data-icon="eye" class="custom-active">Tracker</a></li>
+                <li><a href="#Community" data-icon="comment">Community</a></li>
+                <li><a href="#About" data-icon="info">About</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+<!--Nutrition Page-->
+<div id="Nutrition" data-role="page" >
+    <header data-role="header" data-position="fixed" data-theme="b">
+        <h1>ZenFit</h1>
+    </header>
+    <section data-role="content" data-position="fixed" class="border">
+        <h3>Welcome to our Fitness App!</h3>
+        <h2>Nutrition Record</h2>
+        <form id="nutritionForm">
+            <label for="protein">Protein (g):</label>
+            <input type="number" id="protein" name="protein" required>
+
+            <label for="carbs">Carbohydrates (g):</label>
+            <input type="number" id="carbs" name="carbs" required>
+
+            <label for="fats">Fats (g):</label>
+            <input type="number" id="fats" name="fats" required>
+
+            <button class="btn ui-btn-active"  type="button" onclick="generateBarChart()">Generate Bar Chart</button>
+        </form>
+
+        <canvas id="barChart" width="400" height="400"></canvas>
+
+        <div id="savedData"></div>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b" >
+        <nav data-role="navbar" data-iconpos="top" data-grid="d">
+            <ul>
+                <li><a href="#Summary" data-icon="bars">Summary</a></li>
+                <li><a href="#Workout" data-icon="grid">Workouts</a></li>
+                <li><a href="#Tracker" data-icon="eye" class="custom-active">Tracker</a></li>
+                <li><a href="#Community" data-icon="comment">Community</a></li>
+                <li><a href="#About" data-icon="info">About</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+<!--Community Page-->
+<div id="Community" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="b">
+        <h1>ZenFit</h1>
+    </header>
+    <section data-role="content" data-position="fixed" class="border">
+        <h3>Welcome to our Fitness App!</h3>
+        <h2>Empower, Connect and Share!</h2>
+        <div data-role="content">
+            <!-- Community Sharing Section -->
+            <form id="postForm" onsubmit="return postAchievement()">
+                <!-- Input for user's name -->
+                <label for="userName">Your Name:</label>
+                <input type="text" id="userName" name="userName" placeholder="Enter your name">
+
+                <!-- Input for sharing thoughts -->
+                <label for="thoughts">Share your thoughts:</label>
+                <textarea id="thoughts" name="thoughts" placeholder="Share your achievements and thoughts"></textarea>
+
+                <!-- Input for choosing image -->
+                <label for="communityImage">Choose Image:</label>
+                <input type="file" accept="image/*" capture="camera" name="communityImage" id="communityImage" data-theme="a">
+
+                <!-- Button to post the achievement -->
+                <button type="submit" class="ui-btn-active">Post</button>
+            </form>
+
+            <!-- Display posted achievements -->
+            <div id="postedAchievement"></div>
+        </div>
+
+            <!-- Community Feed -->
+            <h2>Community Feed</h2>
+            <!-- Display area for posted achievements -->
+            <div id="postedAchievements"></div>
+            <h4><center>Posted By: Annie Bell</center></h4>
+            <!-- Community Feed -->
+            <div class="community-feed">
+                <!-- Post 1 -->
+                <div class="community-post">
+                   <center ><img src="myimages/user1.jpg" alt="User 1" height="400" width="500"></center>
+                    <div class="post-content">
+                        <p><center>Just completed a 5k run! 🏃‍♂️ Feeling amazing! #Running #AchievementUnlocked</center></p>
+                    </div>
+                </div>
+
+            </div>
+
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b" >
+        <nav data-role="navbar" data-iconpos="top" data-grid="d">
+            <ul>
+                <li><a href="#Summary" data-icon="bars">Summary</a></li>
+                <li><a href="#Workout" data-icon="grid">Workouts</a></li>
+                <li><a href="#Tracker" data-icon="eye">Tracker</a></li>
+                <li><a href="#Community" data-icon="comment" class="custom-active">Community</a></li>
+                <li><a href="#About" data-icon="info">About</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+<!--About Page-->
+<div id="About" data-role="page" >
+    <header data-role="header" data-position="fixed" data-theme="b">
+        <h1>ZenFit</h1>
+    </header>
+    <section data-role="content" data-position="fixed" class="border">
+        <h3>Welcome to our Fitness App!</h3>
+        <h2>Meet the Developers</h2>
+        <div data-role="content">
+
+            <!-- Developer 1 -->
+            <div class="developer">
+                <img src="myimages/Developer1.png" alt="Developer 1">
+                <h4>Name: Parneet Kaur</h4>
+                <p>Contribution: Front-End Development </p>
+                <p>Email: <a href="mailto:pkaur4798@conestogac.on.ca">pkaur4798@conestogac.on.ca</a></p>
+            </div>
+
+            <!-- Developer 2 -->
+            <div class="developer">
+                <img src="myimages/isha1.jpg" alt="Developer 2" >
+                <h4>Name: Isha Isha</h4>
+                <p>Contribution: UX Designing </p>
+                <p>Email: <a href="mailto:isha2737@conestogac.on.ca">isha2737@conestogac.on.ca</a></p>
+            </div>
+
+            <!-- Developer 3 -->
+            <div class="developer">
+                <img src="developer3.jpg" alt="Developer 3">
+                <h4>Name: Neel Jose Binu</h4>
+                <p>Contribution: Handling functionalities and Validating Inputs </p>
+                <p>Email: <a href="mailto:NBinu5742@conestogac.on.ca">NBinu5742@conestogac.on.ca</a></p>
+            </div>
+
+            <!-- Developer 4 -->
+            <div class="developer">
+                <img src="developer4.jpg" alt="Developer 4">
+                <h4>Name: Basil Kocheri Biju</h4>
+                <p>Contribution: Back-End Development </p>
+                <p>Email: <a href="mailto:Bkocheribiju5276@conestogac.on.ca">Bkocheribiju5276@conestogac.on.ca</a></p>
+            </div>
+        </div>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b" >
+        <nav data-role="navbar" data-iconpos="top" data-grid="d">
+            <ul>
+                <li><a href="#Summary" data-icon="bars">Summary</a></li>
+                <li><a href="#Workout" data-icon="grid">Workouts</a></li>
+                <li><a href="#Tracker" data-icon="eye">Tracker</a></li>
+                <li><a href="#Community" data-icon="comment">Community</a></li>
+                <li><a href="#About" data-icon="info" class="custom-active">About</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+<!--Trainees Page-->
+<div id="Trainees" data-role="page" >
+<header data-role="header" data-position="fixed" data-theme="b">
+    <h1>ZenFit</h1>
+</header>
+<section data-role="content" data-position="fixed" class="back">
+    <h3>Welcome to our Fitness App!</h3>
+    <h2>Know your Instructors</h2>
+    <div class="instructor-profile">
+        <img src="myimages/instructor1.jpeg" alt="Instructor 1" class="instructor-image" height="300" width="400">
+        <h2>Jim Connor</h2>
+        <p class="instructor-bio">Experienced fitness instructor passionate about helping individuals achieve their health and fitness goals.</p>
+        <div data-role="collapsible-set" class="review-collapsible" data-theme="a" data-content-theme="a">
+            <div data-role="collapsible">
+                <h5>Reviews</h5>
+                <ul data-role="listview" data-inset="true">
+                    <li>Great instructor! Very motivating.</li>
+                    <li>Structured workouts that yield results.</li>
+                    <!-- Add more reviews as needed -->
+                </ul>
+            </div>
+        </div>
+        <div class="instructor-rating">
+            <p>Rating: 4.8</p>
+        </div>
+        <a href="mailto:instructor1@email.com" class="contact-button">Contact Instructor</a>
+    </div>
+
+    <div class="instructor-profile">
+        <img src="myimages/instructor2.jpg" alt="Instructor 2" class="instructor-image" height="350" width="400">
+        <h2>Isabella Blaze</h2>
+        <p class="instructor-bio">Certified personal trainer with expertise in strength training and nutrition counseling.</p>
+        <div data-role="collapsible-set" class="review-collapsible" data-theme="a" data-content-theme="a">
+            <div data-role="collapsible">
+                <h5>Reviews</h5>
+                <ul data-role="listview" data-inset="true">
+                    <li>Knowledgeable and friendly instructor.</li>
+                    <li>Customized workout plans for individual needs.</li>
+                    <!-- Add more reviews as needed -->
+                </ul>
+            </div>
+        </div>
+        <div class="instructor-rating">
+            <p>Rating: 4.5</p>
+        </div>
+        <a href="mailto:instructor2@email.com" class="contact-button">Contact Instructor</a>
+    </div>
+</section>
+<footer data-role="footer" data-position="fixed" data-theme="b" >
+    <nav data-role="navbar" data-iconpos="top" data-grid="d">
+        <ul>
+            <li><a href="#Summary" data-icon="bars" class="custom-active">Summary</a></li>
+            <li><a href="#Workout" data-icon="grid">Workouts</a></li>
+            <li><a href="#Tracker" data-icon="eye">Tracker</a></li>
+            <li><a href="#Community" data-icon="comment">Community</a></li>
+            <li><a href="#About" data-icon="info">About</a></li>
+        </ul>
+    </nav>
+</footer>
+</div>
+<!--exercise page-->
+<div id="exer" data-role="page" >
+    <header data-role="header" data-position="fixed" data-theme="b">
+        <h1>ZenFit</h1>
+    </header>
+    <section data-role="content" data-position="fixed" class="back1">
+        <h3><center>Welcome to our Fitness App!</center></h3>
+        <h2>Learn Difference Exercises:</h2>
+        <title>BMI Calculator</title>
+
+        <h1>BMI Calculator</h1>
+        <div></div>
+        <div>
+            <label for="age">Age (years):</label>
+            <input type="number" id="age" placeholder="Enter your age">
+        </div>
+        <div>
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" placeholder="Enter your weight">
+        </div>
+        <div>
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" placeholder="Enter your height">
+        </div>
+        <button onclick="calculateBMI()">CALCULATE BMI <i class="fa-solid fa-dumbbell" ></i></button>
+        <div id="bmiResult"></div>
+       <center><img src="myimages/images1.jpg" width="400" height="250"> </center>
+
+
+    </section>
+        <footer data-role="footer" data-position="fixed" data-theme="b" >
+            <nav data-role="navbar" data-iconpos="top" data-grid="d">
+                <ul>
+                    <li><a href="#Summary" data-icon="bars" class="custom-active">Summary</a></li>
+                    <li><a href="#Workout" data-icon="grid">Workouts</a></li>
+                    <li><a href="#Tracker" data-icon="eye">Tracker</a></li>
+                    <li><a href="#Community" data-icon="comment">Community</a></li>
+                    <li><a href="#About" data-icon="info">About</a></li>
+                </ul>
+            </nav>
+        </footer>
+</div>
+
+
+<!--Nutrition Guide Page-->
+<div id="Guide" data-role="page" >
+    <header data-role="header" data-position="fixed" data-theme="b">
+        <h1>ZenFit</h1>
+    </header>
+    <section data-role="content" data-position="fixed" class="back">
+        <h3><center>Welcome to our Fitness App!</center></h3>
+        <h2>Nutrition Guide for optimal Health and Fitness!</h2>
+        <canvas id="nutritionChart" width="400" height="400"></canvas>
+
+
+        <ul id="new">
+            <p>Here is a breakdown of the recommended daily nutrition:</p>
+            <li>Protein: 30% - Essential for muscle repair and growth.</li>
+            <li>Carbohydrates: 50% - Primary source of energy for the body.</li>
+            <li>Fats: 20% - Important for hormone regulation and absorption of vitamins.</li>
+        </ul>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b" >
+        <nav data-role="navbar" data-iconpos="top" data-grid="d">
+            <ul>
+                <li><a href="#Summary" data-icon="bars" class="custom-active">Summary</a></li>
+                <li><a href="#Workout" data-icon="grid">Workouts</a></li>
+                <li><a href="#Tracker" data-icon="eye">Tracker</a></li>
+                <li><a href="#Community" data-icon="comment">Community</a></li>
+                <li><a href="#About" data-icon="info">About</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+<!--Info Page-->
+<div id="Info" data-role="page" >
+    <header data-role="header" data-position="fixed" data-theme="b">
+        <h1>ZenFit</h1>
+    </header>
+    <h3>Welcome to our Fitness App!</h3>
+    <section data-role="content" data-position="fixed" class="back">
+
+        <h2><u>A Quick Recap!</u></h2>
+        <p>
+            Thank you for choosing our Fitness App to embark on your fitness journey. Our app is designed to help you achieve your health and wellness goals by providing a comprehensive set of features and resources.
+        </p>
+
+        <h2>Key Features:</h2>
+
+        <h3>1. Workouts</h3>
+        <p>
+            Access a variety of workout routines tailored to different fitness levels and goals. Whether you're into cardio, strength training, or flexibility exercises, we've got you covered.
+        </p>
+
+        <h3>2. Nutrition Guide</h3>
+        <p>
+            Learn about essential nutrition components and get personalized recommendations to support your fitness journey. A balanced diet is crucial for achieving optimal results.
+        </p>
+
+        <h3>3. Activity Tracker</h3>
+        <p>
+            Keep track of your daily activities, monitor your steps, and set fitness goals. Our activity tracker helps you stay motivated and maintain an active lifestyle.
+        </p>
+
+        <h3>4. Community Support</h3>
+        <p>
+            Connect with like-minded individuals, share your progress, and find inspiration in our community. We believe in the power of collective motivation to achieve fitness success.
+        </p>
+
+        <h2>Contact Us:</h2>
+
+        <h1>
+            If you have any questions, feedback, or need assistance, feel free to reach out to our support team at <a href="mailto:support@fitnessapp.com">support@fitnessapp.com</a>.
+        </h1>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="b" >
+        <nav data-role="navbar" data-iconpos="top" data-grid="d">
+            <ul>
+                <li><a href="#Summary" data-icon="bars" class="custom-active">Summary</a></li>
+                <li><a href="#Workout" data-icon="grid">Workouts</a></li>
+                <li><a href="#Tracker" data-icon="eye">Tracker</a></li>
+                <li><a href="#Community" data-icon="comment">Community</a></li>
+                <li><a href="#About" data-icon="info">About</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+</body>
+</html>
